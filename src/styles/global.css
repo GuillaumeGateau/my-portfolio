@@ -18,3 +18,9 @@ h1, h2, h3, h4, h5, h6 {
 button {
   cursor: pointer;
 }
+
+body .header-appbar {
+  background-color: black !important;
+  opacity: 1 !important;
+  box-shadow: none;
+}
