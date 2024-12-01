@@ -1,6 +1,6 @@
 .header-toolbar {
   display: flex;
-  justify-content: space-between; /* This ensures space between logo and navigation */
+  justify-content: space-between; /* Space between logo and navigation */
   align-items: center;
   width: 100%;
   padding: 0 2vw; /* Adjusted to add padding on both sides */
@@ -13,11 +13,14 @@
   max-width: 200px; /* Limits the size of the logo */
 }
 
-
+.header-appbar {
+  background-color: black !important; /* Fully black background */
+  opacity: 1; /* Ensures full opacity */
+  box-shadow: none; /* Removes shadow for a cleaner look (optional) */
+}
 
 @media (max-width: 768px) {
   .header-logo {
     padding-left: 0.5vw; /* Reduces padding on smaller screens */
   }
-
 }
