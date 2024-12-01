@@ -39,7 +39,21 @@ const Hero = () => {
         </Typography>
         {typingComplete && (
           <>
-            <Button variant="contained" className="hero-button" href="#resume">
+            <Button
+              variant="contained"
+              className="hero-button"
+              onClick={() => {
+                const resumeSection = document.getElementById("resume");
+                const headerHeight = 64; // Adjust this to match your header height
+                if (resumeSection) {
+                  const offsetTop = resumeSection.offsetTop - headerHeight; // Calculate offset
+                  window.scrollTo({
+                    top: offsetTop,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+            >
               Explore My Work
             </Button>
             {pillars.length > 0 && (

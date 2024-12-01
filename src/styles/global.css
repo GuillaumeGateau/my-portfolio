@@ -24,9 +24,27 @@ body .header-appbar {
   opacity: 1 !important;
   box-shadow: none;
   align-items: center; /* Centers content vertically */
+  width: 100%;
+  z-index: 1100;
+  top: 0;
 }
 
-body, html {
-  overflow-x: hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: y-hidden; /* Prevent horizontal scrolling */
+  height: 100%; /* Use percentage height to avoid overflows */
+}
+
+* {
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+
+html {
+  scroll-behavior: smooth;
   overscroll-behavior: none;
+}
+
+.app-container {
+  min-height: 100vh; /* Ensure your main container fills the viewport */
 }
