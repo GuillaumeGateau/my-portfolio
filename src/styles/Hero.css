@@ -1,0 +1,202 @@
+/* Hero container styling */
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Remaining space after the Header */
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* Adds space below the header */
+    box-sizing: border-box; /* Includes padding and border in the height */
+  }
+
+
+  
+  /* Image Wrapper */
+  .hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Matches the hero container height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  /* Actual Image */
+  .hero-image {
+    height: 100%; /* Matches the hero container height */
+    width: auto; /* Maintains aspect ratio */
+    display: block;
+    margin: 0 auto;
+    object-fit: cover; /* Ensures the image fills the container */
+  }
+  
+  /* Gradient Overlay */
+  .hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Match the width of the image */
+    height: 100%; /* Match the height of the image */
+    z-index: 2; /* Just above the image */
+    pointer-events: none;
+    background: linear-gradient(
+        to right,
+        black 0%,
+        rgba(0, 0, 0, 0.2) 20%,
+        rgba(0, 0, 0, 0.2) 80%,
+        black 100%
+      ),
+      linear-gradient(
+        to bottom,
+        black 0%,
+        rgba(0, 0, 0, 0.1) 10%,
+        black 100%
+      ); /* Gradient to fade the edges of the image */
+  }
+  
+  /* Content inside the overlay */
+  .hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    z-index: 3; /* Ensures content is above the overlay */
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+  }
+    
+  /* Title Styling - Positioned near the top */
+  .hero-title {
+    font-size: 4vw;
+    font-weight: bold;
+    z-index: 5; /* Ensures title is above other texts */
+  }
+
+  /* Button Styling */
+  .hero-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 2rem; /* Adds space from the bottom edge */
+    margin-top: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 4;
+  }
+
+  .hero-content .hero-button {
+    margin-top: 0;
+    font-size: 24px;
+  }
+  
+  .hero-button:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+  }
+  
+    
+  /* Subtitle and Pillars Container */
+  .pillar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Adjust spacing within the container */
+    align-items: center;
+    position: absolute;
+    bottom: 15%; /* Adjust position according to your layout needs */
+    width: 100%;
+    z-index: 5;
+  }
+
+  /* Subtitle Styling */
+  .pillar-container .pillar-subtitle {
+    font-size: 3rem; /* Reasonable size, adjustable */
+    margin-bottom: 1rem; /* Space between subtitle and pillars */
+    z-index: 5; /* Keeps it above other elements */
+  }
+
+  /* Individual Pillar Text Styling */
+  .pillar-container .pillar-text {
+    font-size: 2rem; /* Adjust font size to be consistent with design */
+    color: rgb(217, 216, 223);
+    display: block;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    margin: 0.5rem 0; /* Space between pillar texts */
+  }
+
+  .pillar-fade-in-0 {
+    animation-delay: 0.2s;
+  }
+
+  .pillar-fade-in-1 {
+    animation-delay: 0.4s;
+  }
+
+  .pillar-fade-in-2 {
+    animation-delay: 0.6s;
+  }
+
+  
+  
+
+  /* Keyframes for fade-in animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    .hero-container {
+      margin-top: 40px; /* Adds space below the header */
+    }
+    
+    .hero-container .hero-title {
+      font-size: 14vw;
+      margin-top: 15%;
+    }
+
+    .hero-container .hero-button {
+      font-size: 14px;
+      padding: 0.5rem 1rem;
+    }
+
+    .pillar-container {
+      bottom: 8%;
+    }
+  
+    .pillar-container .pillar-subtitle {
+      font-size: 8vw;
+    }
+  
+    .pillar-container .pillar-text {
+      font-size: 6vw;
+    }
+  
+    .hero-content .hero-button {
+      font-size: 14px;
+      padding: 0.5rem 1rem;
+    }
+  }

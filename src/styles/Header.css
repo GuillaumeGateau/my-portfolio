@@ -1,0 +1,42 @@
+.header-toolbar {
+  display: flex;
+  justify-content: space-between; /* This ensures space between logo and navigation */
+  align-items: center;
+  width: 100%;
+  padding: 0 2vw; /* Adjusted to add padding on both sides */
+  box-sizing: border-box;
+}
+
+.header-logo {
+  flex-shrink: 0; /* Prevents the logo from shrinking */
+  padding-left: 2vw; /* Adds padding to align with the page's padding */
+  max-width: 200px; /* Limits the size of the logo */
+}
+
+.header-nav {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto; /* Ensures it's pushed to the right */
+  align-items: center;
+  padding-right: 4vw; /* Adds padding to right to match the logo's left padding */
+}
+
+.header-nav-item {
+  font-size: 1rem;
+  padding: 10px; /* Ensures clickable area is larger */
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    padding-left: 0.5vw; /* Reduces padding on smaller screens */
+  }
+
+  .header-nav {
+    display: none; /* Hides desktop navigation on smaller screens */
+  }
+
+  .header-menu-icon {
+    display: block;
+    margin-right: 1vw; /* Aligns menu icon on smaller screens */
+  }
+}

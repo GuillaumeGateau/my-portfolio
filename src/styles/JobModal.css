@@ -1,0 +1,47 @@
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd; /* Thin grey separator */
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Close Button */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Modal Content */
+.modal-content {
+  padding: 1rem;
+}
+
+/* Separator */
+.modal-separator {
+  width: 80%;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0.5rem auto;
+}
+
+/* Outcomes List */
+.outcomes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Add spacing between outcomes */
+}
+
+.outcome-item {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.5;
+}
