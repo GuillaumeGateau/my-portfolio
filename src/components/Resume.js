@@ -21,7 +21,7 @@ const Resume = () => {
   };
 
   return (
-    <div className="resume-container">
+    <div className="resume-container" id="resume">
       <div className="experience-intro">
         <h2>About My Experience</h2>
         <p>

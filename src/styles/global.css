@@ -23,4 +23,10 @@ body .header-appbar {
   background-color: black !important;
   opacity: 1 !important;
   box-shadow: none;
+  align-items: center; /* Centers content vertically */
+}
+
+body, html {
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }

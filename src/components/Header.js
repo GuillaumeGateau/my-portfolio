@@ -1,21 +1,37 @@
-import React from "react";
-import { AppBar, Toolbar, Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import "../styles/Header.css"; // Import CSS file
+import React, { useState, useEffect } from "react";
+import { AppBar, Toolbar, Typography } from "@mui/material";
+import "../styles/Header.css";
 
 const Header = () => {
+  const [showHeader, setShowHeader] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const triggerHeight = document.querySelector(".hero-button").offsetTop + 100;
+
+      if (scrollPosition > triggerHeight) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      {/* Top AppBar */}
-      <AppBar className="header-appbar" sx={{ backgroundColor: "black", opacity: 1 }}>
-        <Toolbar className="header-toolbar">
-          {/* Logo/Brand */}
-          <Button component={Link} to="/" className="header-logo">
-            William Keck
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </>
+    <AppBar
+      position="fixed"
+      className={`header-appbar ${showHeader ? "visible" : "hidden"}`}
+    >
+      <Toolbar>
+        <Typography variant="h6" className="header-logo">
+          William Keck
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 };
 

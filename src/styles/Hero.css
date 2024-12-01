@@ -170,7 +170,7 @@
   /* Media Query for smaller screens */
   @media (max-width: 768px) {
     .hero-container {
-      margin-top: 40px; /* Adds space below the header */
+      margin-top: 20px; /* Adds space below the header */
     }
     
     .hero-container .hero-title {

@@ -1,26 +1,19 @@
-.header-toolbar {
-  display: flex;
-  justify-content: space-between; /* Space between logo and navigation */
-  align-items: center;
-  width: 100%;
-  padding: 0 2vw; /* Adjusted to add padding on both sides */
-  box-sizing: border-box;
+.header-appbar {
+  background-color: black;
+  transition: top 0.3s ease-in-out;
+}
+
+.header-appbar.hidden {
+  top: -64px; /* Move header out of view */
+}
+
+.header-appbar.visible {
+  top: 0; /* Bring header into view */
 }
 
 .header-logo {
-  flex-shrink: 0; /* Prevents the logo from shrinking */
-  padding-left: 2vw; /* Adds padding to align with the page's padding */
-  max-width: 200px; /* Limits the size of the logo */
-}
-
-.header-appbar {
-  background-color: black !important; /* Fully black background */
-  opacity: 1; /* Ensures full opacity */
-  box-shadow: none; /* Removes shadow for a cleaner look (optional) */
-}
-
-@media (max-width: 768px) {
-  .header-logo {
-    padding-left: 0.5vw; /* Reduces padding on smaller screens */
-  }
+  margin: 0 auto; /* Center horizontally within the AppBar */
+  text-align: center; /* Ensure the text is centered */
+  display: flex; /* Allows alignment adjustments */
+  justify-content: center; /* Centers content horizontally */
 }

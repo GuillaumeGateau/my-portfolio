@@ -11,6 +11,7 @@ const Hero = () => {
 
   useEffect(() => {
     let currentIndex = 0;
+    const typingSpeed = 100; // Faster typing speed in ms
     const typingInterval = setInterval(() => {
       if (currentIndex < fullText.length) {
         setDisplayText((prev) => fullText.slice(0, currentIndex + 1));
@@ -19,10 +20,10 @@ const Hero = () => {
         clearInterval(typingInterval);
         setTypingComplete(true); // Set typing completion to true
         setTimeout(() => {
-          setPillars(["Product", "Technology", "Design"]);
-        }, 500);
+          setPillars(["Product", "AI", "Design"]);
+        }, 300); // Adjust delay for pillars fade-in if needed
       }
-    }, 150);
+    }, typingSpeed); // Reduced interval for faster typing
     return () => clearInterval(typingInterval); // Cleanup
   }, []);
 
@@ -38,7 +39,7 @@ const Hero = () => {
         </Typography>
         {typingComplete && (
           <>
-            <Button variant="contained" className="hero-button" href="#projects">
+            <Button variant="contained" className="hero-button" href="#resume">
               Explore My Work
             </Button>
             {pillars.length > 0 && (
