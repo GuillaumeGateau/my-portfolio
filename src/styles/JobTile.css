@@ -43,8 +43,8 @@
   }
 
   .chevron {
-    font-size: 4%; /* Adjust size as needed */
+    font-size: 1.5rem; /* Adjust size for visibility */
     margin-left: auto; /* Push it to the right */
-    color: black; /* Adjust color to match your design */
-    align-self: center; /* Align it vertically */
+    color: black; /* Match your design */
+    align-self: center; /* Align vertically */
   }

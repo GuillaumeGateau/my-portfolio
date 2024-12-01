@@ -12,7 +12,7 @@ const JobTile = ({ job, index, onClick }) => {
         {index % 2 === 0 ? (
           <>
             <img
-              src={job.imagePath || "/images/defaultLogo.jpeg"} // Use default if imagePath is missing
+              src={job.imagePath ? `${process.env.PUBLIC_URL}${job.imagePath}` : `${process.env.PUBLIC_URL}/images/defaultLogo.jpeg`}
               alt={`${job.company} logo`}
               className="job-image"
             />
@@ -26,7 +26,7 @@ const JobTile = ({ job, index, onClick }) => {
               <h3>{job.title}</h3>
             </div>
             <img
-              src={job.imagePath || "/images/defaultLogo.jpeg"} // Use default if imagePath is missing
+              src={job.imagePath ? `${process.env.PUBLIC_URL}${job.imagePath}` : `${process.env.PUBLIC_URL}/images/defaultLogo.jpeg`}
               alt={`${job.company} logo`}
               className="job-image"
             />
