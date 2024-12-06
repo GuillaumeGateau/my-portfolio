@@ -1,7 +1,7 @@
+import React, { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import heroBg from "../assets/hero-bg.jpeg";
 import "../styles/Hero.css";
-import { useState, useEffect } from "react";
 
 const Hero = () => {
   const fullText = "Hi, I'm William";
@@ -11,41 +11,35 @@ const Hero = () => {
 
   useEffect(() => {
     let currentIndex = 0;
-    const typingSpeed = 100; // Faster typing speed in ms
+    const typingSpeed = 100;
     const typingInterval = setInterval(() => {
       if (currentIndex < fullText.length) {
         setDisplayText((prev) => fullText.slice(0, currentIndex + 1));
         currentIndex++;
       } else {
         clearInterval(typingInterval);
-        setTypingComplete(true); // Set typing completion to true
-        setTimeout(() => {
-          setPillars(["Product", "AI", "Design"]);
-        }, 300); // Adjust delay for pillars fade-in if needed
+        setTypingComplete(true);
+        setTimeout(() => setPillars(["Product", "AI", "Design"]), 300);
       }
-    }, typingSpeed); // Reduced interval for faster typing
-    return () => clearInterval(typingInterval); // Cleanup
+    }, typingSpeed);
+    return () => clearInterval(typingInterval);
   }, []);
 
   const handleScrollToResume = (e) => {
-    e.preventDefault();
-
+    e.preventDefault(); // Prevent default behavior
     const resumeSection = document.getElementById("resume");
     if (resumeSection) {
       const headerHeight =
-        document.querySelector(".header-appbar")?.offsetHeight || 64; // Dynamically calculate header height
+        document.querySelector(".header-appbar")?.offsetHeight || 64; // Header height
       const offsetTop =
         resumeSection.getBoundingClientRect().top +
         window.pageYOffset -
         headerHeight -
-        16; // Add extra padding offset
-
+        10; // Add a little padding offset
       window.scrollTo({
         top: offsetTop,
-        behavior: "smooth", // Smooth scroll
+        behavior: "smooth", // Ensure smooth scrolling
       });
-    } else {
-      console.error("Resume section not found!");
     }
   };
 
@@ -65,7 +59,6 @@ const Hero = () => {
               variant="contained"
               className="hero-button"
               onClick={handleScrollToResume}
-              href="#resume"
             >
               Explore My Work
             </Button>
