@@ -8,12 +8,18 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const triggerHeight = document.querySelector(".hero-button").offsetTop + 100;
+      const buttonPosition =
+        document.querySelector(".hero-button")?.offsetTop || 0;
 
-      if (scrollPosition > triggerHeight) {
-        setShowHeader(true);
+      const heroBottom =
+        document.querySelector(".hero-container")?.offsetHeight || 0;
+
+      if (scrollPosition > heroBottom) {
+        setShowHeader(true); // Show header after hero section
+      } else if (scrollPosition > buttonPosition) {
+        setShowHeader(true); // Show header after scrolling past the button
       } else {
-        setShowHeader(false);
+        setShowHeader(false); // Hide header when above the button
       }
     };
 
@@ -26,7 +32,7 @@ const Header = () => {
       position="fixed"
       className={`header-appbar ${showHeader ? "visible" : "hidden"}`}
     >
-      <Toolbar>
+      <Toolbar className="header-toolbar">
         <Typography variant="h6" className="header-logo">
           William Keck
         </Typography>

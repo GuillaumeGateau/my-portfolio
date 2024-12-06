@@ -1,8 +1,26 @@
 .job-list-container {
-    position: relative;
+  /* Ensure no horizontal overflow */
+  position: relative;
+  padding: 0;
+  margin: 0 auto; /* Center-align container */
+  width: 100%;
+  max-width: 100%; /* Prevent container from exceeding viewport width */
+  box-sizing: border-box; /* Include padding and borders in total width */
+  overflow-x: hidden; /* Hide any potential overflow */
+}
+
+.timeline-line {
+  display: none; /* Hide timeline on mobile */
+}
+
+@media (min-width: 768px) {
+  .job-list-container {
+    /* Add vertical padding for spacing on desktop */
     padding: 2rem 0;
   }
+
   .timeline-line {
+    display: block;
     position: absolute;
     left: 50%;
     top: 0;
@@ -11,8 +29,4 @@
     background-color: white;
     transform: translateX(-50%);
   }
-  @media (max-width: 768px) {
-    .timeline-line {
-      display: none; /* Hide timeline for smaller screens */
-    }
-  }
+}

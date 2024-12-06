@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'museo-sans';
+  font-family: 'museo-sans', sans-serif;
   background-color: black;
   color: white;
 }
@@ -8,11 +8,6 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
 }
 
 button {
@@ -27,24 +22,32 @@ body .header-appbar {
   width: 100%;
   z-index: 1100;
   top: 0;
+  position: fixed; /* Ensure it's always visible */
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  overflow: y-hidden; /* Prevent horizontal scrolling */
-  height: 100%; /* Use percentage height to avoid overflows */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling globally */
 }
 
 * {
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  box-sizing: border-box; /* Include padding and border in height/width calculations */
 }
 
 html {
-  scroll-behavior: smooth;
-  overscroll-behavior: none;
+  overscroll-behavior: none; /* Prevent unintended scroll chaining */
 }
 
 .app-container {
   min-height: 100vh; /* Ensure your main container fills the viewport */
+  overflow-x: hidden; /* Prevent any accidental horizontal scrolling */
+}
+
+/* Reset universal styles to avoid conflicts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

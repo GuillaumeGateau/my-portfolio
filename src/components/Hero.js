@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 const Hero = () => {
   const fullText = "Hi, I'm William";
   const [displayText, setDisplayText] = useState(""); // Typing effect state
-  const [pillars, setPillars] = useState([]); // Technology, Data, Design
-  const [typingComplete, setTypingComplete] = useState(false); // State to track if typing is complete
+  const [pillars, setPillars] = useState([]); // Product, AI, Design
+  const [typingComplete, setTypingComplete] = useState(false); // Track if typing is complete
 
   useEffect(() => {
     let currentIndex = 0;
@@ -27,6 +27,28 @@ const Hero = () => {
     return () => clearInterval(typingInterval); // Cleanup
   }, []);
 
+  const handleScrollToResume = (e) => {
+    e.preventDefault();
+
+    const resumeSection = document.getElementById("resume");
+    if (resumeSection) {
+      const headerHeight =
+        document.querySelector(".header-appbar")?.offsetHeight || 64; // Dynamically calculate header height
+      const offsetTop =
+        resumeSection.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight -
+        16; // Add extra padding offset
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth", // Smooth scroll
+      });
+    } else {
+      console.error("Resume section not found!");
+    }
+  };
+
   return (
     <Box className="hero-container">
       <Box className="hero-image-wrapper">
@@ -42,17 +64,8 @@ const Hero = () => {
             <Button
               variant="contained"
               className="hero-button"
-              onClick={() => {
-                const resumeSection = document.getElementById("resume");
-                const headerHeight = 64; // Adjust this to match your header height
-                if (resumeSection) {
-                  const offsetTop = resumeSection.offsetTop - headerHeight; // Calculate offset
-                  window.scrollTo({
-                    top: offsetTop,
-                    behavior: "smooth",
-                  });
-                }
-              }}
+              onClick={handleScrollToResume}
+              href="#resume"
             >
               Explore My Work
             </Button>

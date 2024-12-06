@@ -1,19 +1,38 @@
+/* Mobile-First: Toolbar Styles */
+.header-toolbar {
+  display: flex;
+  justify-content: center; /* Center the text */
+  align-items: center;
+  width: 100%;
+  padding: 0 1vw; /* Narrower padding for smaller screens */
+  box-sizing: border-box; /* Ensure padding is part of width */
+}
+
+/* Mobile-First: AppBar Styling */
 .header-appbar {
-  background-color: black;
-  transition: top 0.3s ease-in-out;
+  background-color: black !important; /* Fully black background */
+  opacity: 1; /* Full opacity */
+  box-shadow: none; /* Clean look by removing shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transition for visibility */
 }
 
+/* Hidden state for AppBar */
 .header-appbar.hidden {
-  top: -64px; /* Move header out of view */
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
+/* Visible state for AppBar */
 .header-appbar.visible {
-  top: 0; /* Bring header into view */
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.header-logo {
-  margin: 0 auto; /* Center horizontally within the AppBar */
-  text-align: center; /* Ensure the text is centered */
-  display: flex; /* Allows alignment adjustments */
-  justify-content: center; /* Centers content horizontally */
+/* Desktop-Specific Adjustments */
+@media (min-width: 768px) {
+  .header-toolbar {
+    padding: 0 2vw; /* Wider padding for desktop screens */
+  }
 }

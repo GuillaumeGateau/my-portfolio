@@ -1,40 +1,61 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { Box, Typography, Card, CardContent, CardMedia } from "@mui/material";
 import "../styles/JobTile.css";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight"; // Import MUI Chevron
 
 const JobTile = ({ job, index, onClick }) => {
+  const tileRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = tileRef.current;
+    const observerOptions = { threshold: 0.1 };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    if (node) observer.observe(node);
+
+    return () => {
+      if (node) observer.unobserve(node);
+    };
+  }, []);
+
+  const isRight = index % 2 !== 0; // Odd tiles are reversed
+
   return (
-    <div
-      className={`job-tile ${index % 2 === 0 ? "" : "right"}`}
+    <Box
+      ref={tileRef}
+      className={`job-tile ${isRight ? "right" : ""} ${isVisible ? "visible" : ""}`}
       onClick={() => onClick(job)}
     >
-      <div className="tile-content">
-        {index % 2 === 0 ? (
-          <>
-            <img
-              src={job.imagePath ? `${process.env.PUBLIC_URL}${job.imagePath}` : `${process.env.PUBLIC_URL}/images/defaultLogo.jpeg`}
-              alt={`${job.company} logo`}
-              className="job-image"
-            />
-            <div className="job-details">
-              <h3>{job.title}</h3>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="job-details">
-              <h3>{job.title}</h3>
-            </div>
-            <img
-              src={job.imagePath ? `${process.env.PUBLIC_URL}${job.imagePath}` : `${process.env.PUBLIC_URL}/images/defaultLogo.jpeg`}
-              alt={`${job.company} logo`}
-              className="job-image"
-            />
-          </>
-        )}
-        <ChevronRightIcon className="chevron" /> {/* MUI Chevron */}
-      </div>
-    </div>
+      <Card className="tile-content">
+        <CardMedia
+          component="img"
+          image={
+            job.imagePath
+              ? `${process.env.PUBLIC_URL}${job.imagePath}`
+              : `${process.env.PUBLIC_URL}/images/defaultLogo.jpeg`
+          }
+          alt={`${job.company} logo`}
+          sx={{
+            width: 80,
+            height: 80,
+            objectFit: 'contain'
+          }}
+          className="job-image"
+        />
+
+        <CardContent className="job-details">
+          <Typography variant="h6" className="job-title">{job.title}</Typography>
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 
