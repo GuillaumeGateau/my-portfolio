@@ -14,7 +14,23 @@ const PasswordReset = () => {
   return (
     <div style={{ textAlign: 'center', marginTop: '20%' }}>
       <h1>Password Reset</h1>
-      <p>If nothing happens, click <a onClick={() => netlifyIdentity.open('login')}>here</a> to reset your password.</p>
+      <p>
+        If nothing happens, click{" "}
+        <button
+            onClick={() => netlifyIdentity.open("login")}
+            style={{
+            background: "none",
+            color: "blue",
+            border: "none",
+            padding: 0,
+            textDecoration: "underline",
+            cursor: "pointer",
+            }}
+        >
+            here
+        </button>{" "}
+        to reset your password.
+     </p>
     </div>
   );
 };
