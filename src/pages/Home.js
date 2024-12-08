@@ -11,6 +11,7 @@ const Home = () => {
     <ThemeProvider theme={theme}>
       <Header />
       <Hero />
+      <Articles /> 
       <Resume />
     </ThemeProvider>
   );
