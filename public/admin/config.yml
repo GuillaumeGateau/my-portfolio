@@ -16,7 +16,6 @@ collections:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "image", label: "Image", widget: "image" }
-      - { name: "description", label: "Description", widget: "string" }
       - { name: "body", label: "Body", widget: "markdown" }
 
 # Add the following section to trigger the build hook after publishing

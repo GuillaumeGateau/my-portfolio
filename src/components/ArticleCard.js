@@ -19,10 +19,6 @@ const ArticleCard = ({ article, onClick }) => {
       ) : (
         <div className="article-image-placeholder">Image Here</div>
       )}
-      <h3 className="article-title">{article.title}</h3>
-      <p className="article-date">
-        {new Date(article.date).toLocaleDateString()}
-      </p>
     </div>
   );
 };
