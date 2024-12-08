@@ -1,13 +1,14 @@
 import React from 'react';
 import { Drawer, IconButton, useMediaQuery, Box, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import ReactMarkdown from 'react-markdown';
 
 const ArticleDrawer = ({ open, onClose, article }) => {
   const isDesktop = useMediaQuery('(min-width:768px)');
 
   console.log("ArticleDrawer Props:", { open, article });
 
-  if (!article || !article.Component) {
+  if (!article) {
     return (
       <Drawer
         anchor={isDesktop ? 'right' : 'bottom'}
@@ -67,7 +68,20 @@ const ArticleDrawer = ({ open, onClose, article }) => {
           <CloseIcon />
         </IconButton>
         <Box sx={{ flex: 1, overflowY: 'auto', p: 2 }}>
-          <article.Component />
+          <Typography variant="h4" gutterBottom>
+            {article.data.title}
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            {new Date(article.data.date).toLocaleDateString()}
+          </Typography>
+          {article.data.image && (
+            <img
+              src={article.data.image}
+              alt={article.data.title}
+              style={{ width: '100%', height: 'auto', marginBottom: '16px' }}
+            />
+          )}
+          <ReactMarkdown>{article.content}</ReactMarkdown>
         </Box>
       </Box>
     </Drawer>

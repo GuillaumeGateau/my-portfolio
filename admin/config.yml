@@ -4,16 +4,22 @@ backend:
   repo: github.com/GuillaumeGateau/my-portfolio
   branch: main # Or master, or any branch you use
 
-media_folder: "public/images/uploads" # Where uploaded images and files go in your repo
-public_folder: "/images/uploads" # Path to access uploaded media on your live site
+media_folder: "public/images/uploads" # Folder where uploaded images will be stored
+public_folder: "/images/uploads"       # Public URL for uploaded images
 
 collections:
-  - name: "posts" # The name of the collection
-    label: "Posts" # How it appears in the CMS UI
-    folder: "src/posts" # The folder in your repo where content files live
-    create: true # Allow users to create new documents
-    slug: "{{slug}}" # URL-safe unique identifier for each post
+  - name: "posts"
+    label: "Posts"
+    folder: "src/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {name: "title", label: "Title", widget: "string"}
-      - {name: "date", label: "Date", widget: "datetime"}
-      - {name: "body", label: "Body", widget: "markdown"}
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "image", label: "Image", widget: "image" }
+      - { name: "description", label: "Description", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+# Add the following section to trigger the build hook after publishing
+# events:
+#  afterPublish: "https://api.netlify.com/build_hooks/your-build-hook-id"
