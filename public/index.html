@@ -23,6 +23,20 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
+    <!-- Add JavaScript to handle redirects after login -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              // Redirect to the admin dashboard after login
+              window.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+
     <!-- Template Notes:
       - This file serves as a template for your React app.
       - The bundled JavaScript will be injected into the <body> during the build process.
