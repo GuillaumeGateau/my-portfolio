@@ -1,6 +1,5 @@
-# admin/config.yml
 backend:
-  name: github
+  name: git-gateway
   repo: github.com/GuillaumeGateau/my-portfolio
   branch: main # Or master, or any branch you use
 
@@ -10,7 +9,7 @@ public_folder: "/images/uploads"       # Public URL for uploaded images
 collections:
   - name: "posts"
     label: "Posts"
-    folder: "src/posts"
+    folder: "public/posts" # Changed from "src/posts" to "public/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -21,5 +20,5 @@ collections:
       - { name: "body", label: "Body", widget: "markdown" }
 
 # Add the following section to trigger the build hook after publishing
-# events:
-#  afterPublish: "https://api.netlify.com/build_hooks/your-build-hook-id"
+events:
+  afterPublish: "https://api.netlify.com/build_hooks/67560158baebdbfbb77909c1"
