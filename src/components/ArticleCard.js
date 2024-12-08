@@ -1,21 +1,20 @@
 import React from 'react';
-import ArticleCard from './ArticleCard';
 import '../styles/Articles.css';
 
-const Articles = ({ articles }) => {
+const ArticleCard = ({ article, onClick }) => {
   return (
-    <section id="articles" className="articles-section">
-      <div className="articles-carousel-container">
-        {articles.map((article, index) => (
-          <ArticleCard
-            key={index}
-            article={article}
-            onClick={() => console.log(`Article clicked: ${article.title}`)}
-          />
-        ))}
-      </div>
-    </section>
+    <div className="article-card" onClick={onClick}>
+      {article.data.image ? (
+        <img
+          src={article.data.image}
+          alt={article.data.title}
+          className="article-image"
+        />
+      ) : (
+        <div className="article-image-placeholder">No Image</div>
+      )}
+    </div>
   );
 };
 
-export default Articles;
+export default ArticleCard;

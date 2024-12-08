@@ -1,37 +1,22 @@
-import React from 'react';
-import { Drawer, IconButton, useMediaQuery, Box, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
+import { Drawer, IconButton, Box, Typography, useMediaQuery } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import ReactMarkdown from 'react-markdown';
+import '../styles/ArticleDrawer.css';
 
 const ArticleDrawer = ({ open, onClose, article }) => {
   const isDesktop = useMediaQuery('(min-width:768px)');
 
-  console.log("ArticleDrawer Props:", { open, article });
-
-  if (!article) {
-    return (
-      <Drawer
-        anchor={isDesktop ? 'right' : 'bottom'}
-        open={open}
-        onClose={onClose}
-        sx={{
-          '& .MuiDrawer-paper': {
-            backgroundColor: 'black',
-            color: 'white',
-            ...(isDesktop
-              ? { width: '50vw' }
-              : { height: '90vh', borderRadius: '16px 16px 0 0' }),
-          },
-        }}
-      >
-        <Box sx={{ p: 2 }}>
-          <Typography variant="h6" color="error">
-            Unable to load the article. Please try again later.
-          </Typography>
-        </Box>
-      </Drawer>
-    );
-  }
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [open]);
 
   return (
     <Drawer
@@ -40,49 +25,54 @@ const ArticleDrawer = ({ open, onClose, article }) => {
       onClose={onClose}
       sx={{
         '& .MuiDrawer-paper': {
-          backgroundColor: 'black',
-          color: 'white',
-          ...(isDesktop
-            ? { width: '50vw' }
-            : { height: '90vh', borderRadius: '16px 16px 0 0' }),
+          width: isDesktop ? '600px' : '100vw',
+          height: isDesktop ? '100vh' : '80vh',
+          backgroundColor: 'white',
+          color: 'black',
+          borderRadius: isDesktop ? '0px' : '16px 16px 0 0',
+          overflowY: 'auto',
         },
       }}
     >
-      <Box
-        sx={{
-          position: 'relative',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      <Box sx={{ position: 'relative', height: '100%', padding: '16px' }}>
         <IconButton
           onClick={onClose}
           sx={{
             position: 'absolute',
             top: 16,
             right: 16,
-            color: 'white',
           }}
         >
           <CloseIcon />
         </IconButton>
-        <Box sx={{ flex: 1, overflowY: 'auto', p: 2 }}>
-          <Typography variant="h4" gutterBottom>
-            {article.data.title}
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom>
-            {new Date(article.data.date).toLocaleDateString()}
-          </Typography>
-          {article.data.image && (
-            <img
-              src={article.data.image}
-              alt={article.data.title}
-              style={{ width: '100%', height: 'auto', marginBottom: '16px' }}
-            />
-          )}
-          <ReactMarkdown>{article.content}</ReactMarkdown>
-        </Box>
+        {article && (
+          <Box>
+            <Typography
+              variant="h4"
+              align="center"
+              gutterBottom
+              sx={{ marginTop: '16px' }}
+            >
+              {article.data.title}
+            </Typography>
+            <Typography variant="subtitle1" align="center" gutterBottom>
+              {new Date(article.data.date).toLocaleDateString()}
+            </Typography>
+            {article.data.image && (
+              <img
+                src={article.data.image}
+                alt={article.data.title}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                  marginBottom: '16px',
+                }}
+              />
+            )}
+            <ReactMarkdown className="markdown-content">{article.content}</ReactMarkdown>
+          </Box>
+        )}
       </Box>
     </Drawer>
   );
