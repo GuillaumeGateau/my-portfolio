@@ -1,0 +1,19 @@
+# admin/config.yml
+backend:
+  name: github
+  repo: github.com/GuillaumeGateau/my-portfolio
+  branch: main # Or master, or any branch you use
+
+media_folder: "public/images/uploads" # Where uploaded images and files go in your repo
+public_folder: "/images/uploads" # Path to access uploaded media on your live site
+
+collections:
+  - name: "posts" # The name of the collection
+    label: "Posts" # How it appears in the CMS UI
+    folder: "src/posts" # The folder in your repo where content files live
+    create: true # Allow users to create new documents
+    slug: "{{slug}}" # URL-safe unique identifier for each post
+    fields:
+      - {name: "title", label: "Title", widget: "string"}
+      - {name: "date", label: "Date", widget: "datetime"}
+      - {name: "body", label: "Body", widget: "markdown"}
