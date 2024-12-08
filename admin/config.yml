@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  repo: github.com/GuillaumeGateau/my-portfolio
+  branch: main # Or master, or any branch you use
+
+media_folder: "public/images/uploads" # Folder where uploaded images will be stored
+public_folder: "/images/uploads"       # Public URL for uploaded images
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "public/posts" # Changed from "src/posts" to "public/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "image", label: "Image", widget: "image" }
+      - { name: "description", label: "Description", widget: "string" }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+# Add the following section to trigger the build hook after publishing
+events:
+  afterPublish: "https://api.netlify.com/build_hooks/67560158baebdbfbb77909c1"
