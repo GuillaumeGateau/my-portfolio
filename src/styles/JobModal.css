@@ -27,21 +27,55 @@
 
 /* Separator */
 .modal-separator {
-  width: 80%;
+  width: 100%; /* Ensure it spans the full width */
   height: 1px;
   background-color: #ddd;
-  margin: 0.5rem auto;
+  margin: 1rem 0; /* Add spacing above and below */
+  align-self: center; /* Center it within its container */
 }
 
-/* Outcomes List */
-.outcomes-list {
+/* Tiles Container */
+.tiles-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column for mobile */
+  gap: 1rem; /* Space between tiles */
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .tiles-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .tiles-container {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for desktops */
+  }
+}
+
+/* Tile */
+.tile {
   display: flex;
-  flex-direction: column;
-  gap: 1rem; /* Add spacing between outcomes */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #ded8f3; /* Light grey background */
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-.outcome-item {
-  font-size: 1rem;
+.tile:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Tile Title */
+.tile-title {
+  font-size: 1.2rem;
+  font-weight: bold;
   color: black;
-  line-height: 1.5;
 }

@@ -7,16 +7,42 @@ media_folder: "public/images/uploads" # Folder where uploaded images will be sto
 public_folder: "/images/uploads"       # Public URL for uploaded images
 
 collections:
+  # Posts Collection
   - name: "posts"
     label: "Posts"
-    folder: "public/posts" # Changed from "src/posts" to "public/posts"
+    folder: "public/posts" # Saves posts in public/posts
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Generates a date-prefixed slug
     fields:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "image", label: "Image", widget: "image" }
       - { name: "body", label: "Body", widget: "markdown" }
+
+  # Projects Collection
+  - name: "projects"
+    label: "Projects"
+    folder: "public/projects" # Saves projects in public/projects
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Date-prefixed slugs for consistency
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "jobId", label: "Associated Job", widget: "relation", collection: "jobs", searchFields: ["id", "company"], valueField: "id" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "image", label: "Image", widget: "image" }
+      - { name: "description", label: "Short Description", widget: "text" }
+      - { name: "body", label: "Content", widget: "markdown" }
+
+
+  # Jobs Collection
+  - name: "jobs"
+    label: "Jobs"
+    folder: "public/jobs" # Saves jobs in public/jobs
+    create: true
+    slug: "{{slug}}" # Slug is based on job title or ID
+    fields:
+      - { name: "id", label: "ID", widget: "string" }
+      - { name: "company", label: "Company", widget: "string" }
 
 # Add the following section to trigger the build hook after publishing
 events:

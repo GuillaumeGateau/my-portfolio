@@ -29,8 +29,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run generate-posts-json && react-scripts build",
     "generate-posts-json": "node scripts/generatePostsJson.js",
+    "generate-projects": "node scripts/generateProjectsJson.js",
+    "generate-jobs": "node scripts/generateJobsMarkdown.js",
+    "build": "npm run generate-posts-json && npm run generate-projects && npm run generate-jobs && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

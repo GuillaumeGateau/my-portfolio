@@ -25,7 +25,13 @@ const JobList = ({ jobs, onJobClick }) => {
   return (
     <div className="job-list" ref={containerRef}>
       {jobs.map((job, index) => (
-        <JobTile key={index} job={job} index={index} onClick={onJobClick} tileHeight={maxHeight ? `${maxHeight}px` : 'auto'} />
+        <JobTile
+          key={index}
+          job={job}
+          index={index}
+          onClick={onJobClick} // Pass click handler
+          tileHeight={maxHeight ? `${maxHeight}px` : "auto"}
+        />
       ))}
     </div>
   );

@@ -5,17 +5,17 @@ import JobModal from "./JobModal";
 import resumeData from "../assets/resumeData.json";
 
 const Resume = () => {
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedJobId, setSelectedJobId] = useState(null); // Track selected job ID
+  const [isModalOpen, setIsModalOpen] = useState(false); // Track modal open state
 
-  const handleJobClick = (job) => {
-    setSelectedJob(job);
-    setIsModalOpen(true);
+  const handleJobClick = (jobId) => {
+    setSelectedJobId(jobId); // Save the selected job ID
+    setIsModalOpen(true);    // Open the modal
   };
 
   const handleCloseModal = () => {
-    setSelectedJob(null);
-    setIsModalOpen(false);
+    setSelectedJobId(null);  // Clear the job ID
+    setIsModalOpen(false);   // Close the modal
   };
 
   return (
@@ -30,7 +30,7 @@ const Resume = () => {
 
       <JobList jobs={resumeData} onJobClick={handleJobClick} />
 
-      <JobModal job={selectedJob} open={isModalOpen} onClose={handleCloseModal} />
+      <JobModal jobId={selectedJobId} open={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };

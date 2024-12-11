@@ -1,5 +1,4 @@
-import React from "react";
-import "../styles/JobModal.css";
+import React, { useState, useEffect } from "react";
 import {
   Drawer,
   Typography,
@@ -9,9 +8,38 @@ import {
   Slide,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { mapProjectsToJobById } from "../utils/mapProjectsToJobById";
+import "../styles/JobModal.css"; // Importing the CSS file for styles
 
-const JobModal = ({ job, open, onClose }) => {
-  if (!job) return null;
+const JobModal = ({ jobId, open, onClose }) => {
+  const [job, setJob] = useState(null); // State to hold the job with its projects
+  const [selectedProject, setSelectedProject] = useState(null); // State to hold the selected project for details
+
+  useEffect(() => {
+    const fetchJobData = async () => {
+      if (open && jobId) {
+        try {
+          const jobData = await mapProjectsToJobById(jobId);
+          setJob(jobData);
+          setSelectedProject(null); // Reset selected project when the modal opens
+        } catch (error) {
+          console.error("Failed to load job data:", error);
+        }
+      }
+    };
+
+    fetchJobData();
+  }, [open, jobId]);
+
+  if (!open || !job) return null; // Return nothing if modal is closed or job is not loaded
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+  };
+
+  const handleBackToProjects = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <Slide
@@ -19,7 +47,7 @@ const JobModal = ({ job, open, onClose }) => {
       in={open}
       mountOnEnter
       unmountOnExit
-      timeout={{ enter: 500, exit: 500 }} // Adjust the duration for smooth enter and exit
+      timeout={{ enter: 500, exit: 500 }}
     >
       <div>
         <Drawer
@@ -30,32 +58,21 @@ const JobModal = ({ job, open, onClose }) => {
             style: {
               borderRadius: "16px 16px 0 0",
               padding: "1rem",
-              maxHeight: "85vh", // Maximum height when scrolled
-              height: "50vh", // Initial height
+              maxHeight: "85vh",
+              height: "50vh",
               overflowY: "auto",
             },
           }}
         >
           <Box>
             {/* Header Section */}
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              mb={2}
-            >
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}
-              >
+            <Box display="flex" flexDirection="column" alignItems="center" mb={2}>
+              <Typography variant="h6" className="modal-title">
                 {job.company}
               </Typography>
               <IconButton
                 onClick={onClose}
+                className="close-button"
                 sx={{
                   position: "absolute",
                   top: "16px",
@@ -66,21 +83,54 @@ const JobModal = ({ job, open, onClose }) => {
               </IconButton>
             </Box>
 
-            {/* MUI Divider */}
-            <Divider sx={{ marginY: "1rem" }} />
+            <Divider className="modal-separator" />
 
-            {/* Job Outcomes */}
-            <Box>
-              {job.outcomes.map((outcome, index) => (
+            {/* Show either project tiles or project details */}
+            {!selectedProject ? (
+              <Box className="tiles-container">
+                {job.projects && job.projects.length > 0 ? (
+                  job.projects.map((project, index) => (
+                    <Box
+                      key={index}
+                      className="tile"
+                      onClick={() => handleProjectClick(project)}
+                    >
+                      <Typography className="tile-title">
+                        {project.title}
+                      </Typography>
+                    </Box>
+                  ))
+                ) : (
+                  <Typography>No projects available for this job.</Typography>
+                )}
+              </Box>
+            ) : (
+              <Box>
                 <Typography
-                  key={index}
-                  variant="body1"
-                  sx={{ marginBottom: "1rem" }}
+                  variant="h6"
+                  sx={{ fontWeight: "bold", marginBottom: "1rem" }}
                 >
-                  {outcome}
+                  {selectedProject.title}
                 </Typography>
-              ))}
-            </Box>
+                <Typography variant="body1" sx={{ marginBottom: "1rem" }}>
+                  {selectedProject.description}
+                </Typography>
+                <Typography variant="body2">{selectedProject.content}</Typography>
+                <Box mt={2}>
+                  <Typography
+                    variant="button"
+                    onClick={handleBackToProjects}
+                    sx={{
+                      cursor: "pointer",
+                      color: "blue",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Back to Projects
+                  </Typography>
+                </Box>
+              </Box>
+            )}
           </Box>
         </Drawer>
       </div>

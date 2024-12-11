@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Box, Typography, Card, CardContent, CardMedia } from "@mui/material";
 import "../styles/JobTile.css";
 
-const JobTile = ({ job, index, onClick }) => {
+const JobTile = ({ job, index, onClick, tileHeight }) => {
   const tileRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -32,7 +32,8 @@ const JobTile = ({ job, index, onClick }) => {
     <Box
       ref={tileRef}
       className={`job-tile ${isRight ? "right" : ""} ${isVisible ? "visible" : ""}`}
-      onClick={() => onClick(job)}
+      onClick={() => onClick(job.id)} // Pass job ID to parent
+      style={{ height: tileHeight }}
     >
       <Card className="tile-content">
         <CardMedia
@@ -46,13 +47,15 @@ const JobTile = ({ job, index, onClick }) => {
           sx={{
             width: 80,
             height: 80,
-            objectFit: 'contain'
+            objectFit: "contain",
           }}
           className="job-image"
         />
 
         <CardContent className="job-details">
-          <Typography variant="h6" className="job-title">{job.title}</Typography>
+          <Typography variant="h6" className="job-title">
+            {job.title}
+          </Typography>
         </CardContent>
       </Card>
     </Box>
