@@ -1,9 +1,11 @@
 .articles-section {
-    background-color: black;
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-  }
+  background-color: black;
+  color: white;
+  padding: 0 1rem 2rem; /* Set top padding to 0 */
+  text-align: center;
+  max-width: 768px; /* Standard width for your breakpoint */
+  margin: 0 auto; /* Center the section */
+}
   
   .articles-title {
     font-size: 2rem;
@@ -23,26 +25,40 @@
   }
   
   .article-card {
-    flex: 0 0 80%;
+    flex: 0 0 auto;
     background: white;
     border-radius: 8px;
-    display: flex; /* Enable flexbox for alignment */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    height: 200px; /* Adjust height for better proportions */
-    width: 400px; /* Adjust width for consistent sizing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    overflow: hidden; /* Ensure content stays within the card */
-    padding: 16px; /* Add padding for white space */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional for subtle styling */
+    overflow: hidden;
+    padding: 8px; /* Adjust padding for mobile */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
   }
-  
+
   .article-image {
-    max-width: 100%; /* Scale image proportionally within the card */
-    max-height: 100%; /* Scale image proportionally within the card */
-    object-fit: contain; /* Maintain the image’s aspect ratio */
+      width: 100%; /* Make the image responsive */
+      max-width: 300px; /* Limit the image width */
+      height: 150px; /* Fixed height for the image */
+      object-fit: cover; /* Maintains aspect ratio and crops as needed */
+      border-radius: 4px; /* Matches the card's rounded edges */
   }
-  
+
+  @media (min-width: 768px) {
+      .article-card {
+          max-width: 400px; /* Set a max width for desktop */
+          padding: 16px; /* Increase padding for desktop */
+          margin: 0 auto; /* Center the card horizontally */
+      }
+
+      .article-image {
+          max-width: 100%; /* Allow it to fit within the card on desktop */
+          height: 200px; /* Larger fixed height for desktop */
+      }
+  }
+    
   .article-image-placeholder {
     display: flex;
     justify-content: center;
