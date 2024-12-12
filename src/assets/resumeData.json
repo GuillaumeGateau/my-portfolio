@@ -1,5 +1,15 @@
 [
     {
+      "id": "8",
+      "company": "Table4 AI",
+      "title": "Co-Founder",
+      "startDate": "May 2023",
+      "endDate": "Current",
+      "outcomes": [
+      ],
+      "imagePath": "/images/table4Logo.svg"
+    },
+    {
       "id": "7",
       "company": "Restaurant Brands International",
       "title": "Director of Product, App and Production Optimization",
