@@ -4,8 +4,6 @@ date: 2024-12-08T21:41:05.959Z
 image: /images/uploads/hypothesis.png
 description: Hypothesis Driven Prioritization
 ---
-
-
 We will use the hypothesis-driven prioritization framework, leveraging the scientific method and agile testing tactics to prioritize, execute and iterate.  You’ve set your strategy and gained alignment with leadership.  Now, the question of what we’re doing to get there comes up.  There are so many problems out there that we can go after, both known and unknown, each with different customer and business impact.  Identifying the problems we should prioritize, and what solutions we use test our hypotheses will be the difference between ambiguous results and step-function growth.   
 
 Hypothesis-driven prioritization is the process of researching and deeply understanding the customer and their pain points.  With this holistic picture of the customer, we can use data to deduce and articulate clear problem statements.  For each problem statement, we generate a specific, measurable, attainable, relevant (to strategy) and time-bound (quarter) hypothesis – a loose form of the SMART framework.  At this point, it is tempting to jump into solutioning.  However, with a growing set of customer problems, we can use data and proxies to estimate the total addressable market of the problem – if we were to alleviate 100% of the pain, what would the value be?   
@@ -82,11 +80,11 @@ Customers find paying bills tedious and the process of entering the details for 
 
 **Components of a strong problem statement** 
 
-1. It does not presuppose a solution 
-2. It targets a specific customer group with whom you can build empathy 
-3. It reflects the actual user experience 
-4. It directs the project to solve the underlying problems 
-5. It provides measurable obstacles (problems) to overcome and thus a way to measure the success of your proposed solutions and learn how to improve them 
+* It does not presuppose a solution 
+* It targets a specific customer group with whom you can build empathy 
+* It reflects the actual user experience 
+* It directs the project to solve the underlying problems 
+* It provides measurable obstacles (problems) to overcome and thus a way to measure the success of your proposed solutions and learn how to improve them 
 
 Over time, you will refine your ability to craft great problem statements.  Remember, if you struggle to concisely articulate the problem, consider breaking it down more.  When you master this skill, you’ll have more impactful, more predictable, and more focused outcomes. 
 
