@@ -3,6 +3,7 @@ body {
   font-family: 'museo-sans', sans-serif;
   background-color: black;
   color: white;
+  overflow-x: hidden;
 }
 
 a {
@@ -30,6 +31,8 @@ html, body {
   padding: 0;
   overflow-x: hidden; /* Prevent horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling globally */
+  overflow-y: auto; /* Ensure scrolling is enabled */
+  height: 100%; /* Allow full height scrolling */
 }
 
 * {

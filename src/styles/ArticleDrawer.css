@@ -1,75 +1,41 @@
-/* ArticleDrawer.css */
-.drawer-paper {
-    background-color: white !important; /* White background */
-    color: black !important; /* Black text */
-    height: 80vh; /* Set the drawer height to 80% of the viewport */
-    width: 50vw; /* Optional: For desktop, restrict the width to 50% of the viewport */
-    overflow-y: auto; /* Enable scrolling within the drawer */
+/* Header */
+.modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Image Styling */
+.modal-image {
+  width: 100%;
+  height: auto;
+  margin: 16px 0;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Content */
+.modal-content {
+  padding: 16px;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .MuiDrawer-paper {
+    width: 65%; /* Matches the JobModal width for desktop */
+  }
+}
+
+@media (max-width: 768px) {
+  .MuiDrawer-paper {
+    width: 100vw; /* Full width for mobile */
     border-radius: 16px 16px 0 0; /* Rounded corners */
-    padding: 16px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visuals */
   }
-  
-  .drawer-header {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 16px;
-  }
-  
-  .drawer-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 16px;
-    border-radius: 8px; /* Optional for a softer image look */
-  }
-  
-  .drawer-title {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 8px;
-  }
-
-  /* Style bullet points for proper indentation */
-  .markdown-content ul {
-    list-style-type: disc; /* Use bullet points */
-    padding-left: 20px; /* Indent bullet points */
-    margin-top: 8px; /* Add spacing */
-  }
-  
-  .markdown-content li {
-    margin-bottom: 8px; /* Add spacing between list items */
-  }
-
-  .react-markdown ol {
-    margin-left: 20px; /* Indent the list */
-    padding-left: 20px; /* Additional padding for clarity */
-    list-style-position: outside; /* Ensure numbers appear outside the text */
-    line-height: 1.6; /* Improve readability */
-  }
-  
-  .react-markdown ol > li {
-    margin-bottom: 8px; /* Add spacing between list items */
-  }
-  
-/* Ensure consistent padding and spacing for the drawer content */
-.drawer-content {
-    margin-top: 48px;
-    padding: 16px;
-  }
-  
-  /* Fixed width for desktop view */
-  @media (min-width: 768px) {
-    .MuiDrawer-paper {
-      width: 600px; /* Fixed width for desktop */
-    }
-  }
-  
-  /* Full width for mobile view */
-  @media (max-width: 768px) {
-    .MuiDrawer-paper {
-      width: 100vw; /* Full width for mobile */
-      border-radius: 16px 16px 0 0; /* Rounded corners */
-    }
-  }
+}

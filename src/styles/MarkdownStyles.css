@@ -1,0 +1,60 @@
+.markdown-content {
+    padding: 16px;
+    line-height: 1.6;
+    color: #333; /* Standard text color */
+  }
+  
+  /* Adjust list spacing */
+  .markdown-content ul {
+    list-style-type: disc;
+    padding-left: 2rem; /* Indent bullet points */
+    margin: 1rem 0; /* Decrease space before and after the list */
+  }
+  
+  .markdown-content li {
+    margin-bottom: 0.6rem; /* Decrease spacing between list items */
+    font-size: 1rem;
+    line-height: 1.6; /* Improve readability */
+  }
+  
+  .markdown-content li::marker {
+    font-size: 1.4rem; /* Larger bullet points */
+    color: #333; /* Match text color */
+  }
+  
+  /* Paragraph spacing */
+  .markdown-content p {
+    margin: 1rem 0; /* Add space between paragraphs */
+  }
+  
+  /* Heading and section spacing */
+  .markdown-content h1,
+  .markdown-content h2,
+  .markdown-content h3 {
+    margin-top: 2rem; /* Add space before a new section */
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Lists and section interaction */
+  .markdown-content ul + p,
+  .markdown-content ul + h2,
+  .markdown-content ul + h3 {
+    margin-top: 1.5rem; /* Reduce space before next section */
+  }
+  
+  /* Ensure section padding */
+  .markdown-content h2,
+  .markdown-content h3 {
+    padding-top: 1rem; /* Add padding before section headings */
+  }
+  
+  /* Image Styling */
+  .markdown-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
