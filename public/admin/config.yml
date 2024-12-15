@@ -29,7 +29,7 @@ collections:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "jobId", label: "Associated Job", widget: "relation", collection: "jobs", searchFields: ["id", "company"], valueField: "company" }
       - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "image", label: "Image", widget: "image" }
+      - { name: "image", label: "Image", widget: "image", required: false }
       - { name: "description", label: "Short Description", widget: "text" }
       - { name: "body", label: "Content", widget: "markdown" }
 
