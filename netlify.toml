@@ -1,0 +1,3 @@
+[build]
+  command = "npm run generate-posts-json && npm run generate-projects && npm run generate-jobs && npm run build"
+  publish = "build"
