@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/Articles.css';
+import React from "react";
+import "../styles/Articles.css";
 
 const ArticleCard = ({ article, onClick }) => {
   return (
@@ -11,7 +11,7 @@ const ArticleCard = ({ article, onClick }) => {
           className="article-image"
         />
       ) : (
-        <div className="article-image-placeholder">No Image</div>
+        <div className="article-image-placeholder">{article.data.title}</div>
       )}
     </div>
   );

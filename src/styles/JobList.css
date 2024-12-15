@@ -1,22 +1,21 @@
+/* Job List Container - Mobile First */
 .job-list-container {
-  /* Ensure no horizontal overflow */
   position: relative;
   padding: 0;
-  margin: 0 auto; /* Center-align container */
+  margin: 0 auto;
   width: 100%;
-  max-width: 100%; /* Prevent container from exceeding viewport width */
-  box-sizing: border-box; /* Include padding and borders in total width */
-  overflow-x: hidden; /* Hide any potential overflow */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
+/* Timeline Line */
 .timeline-line {
-  display: none; /* Hide timeline on mobile */
+  display: none; /* Hidden on mobile */
 }
 
 @media (min-width: 768px) {
   .job-list-container {
-    /* Add vertical padding for spacing on desktop */
-    padding: 2rem 0;
+    padding: 2rem 0; /* Vertical spacing for desktop */
   }
 
   .timeline-line {

@@ -1,21 +1,30 @@
-/* Mobile-first: no padding on the resume container */
+/* Resume Container */
 .resume-container {
-  padding: 0;
-  background-color: black;
+  padding: 3rem 1rem; /* Added padding for breathing room */
+  background-color: #34495E; /* Darker Blue Background */
   margin: 0 auto;
-  color: white;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-
-/* The experience intro remains centered and uses margins for vertical spacing. */
-.experience-intro {
+  color: #EAF2F8; /* Lightest Blue for text */
   text-align: center;
-  margin-bottom: 2rem;
+  box-sizing: border-box;
+  width: 100%;
 }
 
+/* Experience Intro */
 .experience-intro h2 {
   font-size: 2rem;
+  color: #AED6F1; /* Pale Blue for title highlights */
   margin-bottom: 1rem;
+}
+
+.experience-intro p {
+  color: #EAF2F8; /* Lightest Blue for paragraph text */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* Highlights */
+.experience-intro span {
+  color: #AED6F1; /* Pale Blue for subtle emphasis */
+  font-weight: bold;
 }

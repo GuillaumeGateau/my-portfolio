@@ -1,70 +1,92 @@
+/* Articles Section - Base Styles for Mobile Web */
 .articles-section {
-  background-color: black;
-  color: white;
-  padding: 0 1rem 2rem; /* Set top padding to 0 */
+  background-color: #F6F6F6; /* Light Gray background */
+  color: #34495e; /* Dark Gray text */
+  padding: 3rem 1rem; /* Mobile-friendly padding */
   text-align: center;
-  max-width: 768px; /* Standard width for your breakpoint */
-  margin: 0 auto; /* Center the section */
+  margin: 0 auto;
+  width: 100%; /* Light Gray background edge-to-edge */
 }
-  
-  .articles-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .articles-carousel-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    scrollbar-width: none; /* Firefox hide scrollbar */
-    -ms-overflow-style: none; /* IE and Edge hide scrollbar */
-  }
-  
-  .articles-carousel-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera hide scrollbar */
-  }
-  
+
+.articles-title {
+  font-size: 2rem; /* Mobile-friendly font size */
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #34495e; /* Dark Gray for title */
+}
+
+.articles-carousel-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Cards wrap on small screens */
+}
+
+/* Article Card - Mobile Web (Core CSS) */
+.article-card {
+  background-color: #FFFFFF; /* White card background */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 0.5rem; /* Tight padding for small screens */
+  width: 90%; /* Mobile-friendly width */
+  max-width: 280px; /* Avoid cards becoming too wide */
+  margin: 0 auto;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(204, 231, 255, 0.8); /* Light Blue hover shadow */
+}
+
+.article-image {
+  width: 100%; /* Fully responsive image */
+  height: 150px; /* Fixed height for consistency */
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #F0F0F0; /* Placeholder background */
+}
+
+/* Title Placeholder when No Image */
+.article-title-placeholder {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem;
+  color: #34495e; /* Medium Gray for placeholder title */
+}
+
+/* Tablet Styles (From 480px to 768px) */
+@media (min-width: 480px) {
   .article-card {
-    flex: 0 0 auto;
-    background: white;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    overflow: hidden;
-    padding: 8px; /* Adjust padding for mobile */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+    width: 45%; /* Two cards per row */
+    max-width: 300px; /* Refine card size */
+    padding: 1rem; /* More padding on larger screens */
   }
 
   .article-image {
-      width: 100%; /* Make the image responsive */
-      max-width: 300px; /* Limit the image width */
-      height: 150px; /* Fixed height for the image */
-      object-fit: cover; /* Maintains aspect ratio and crops as needed */
-      border-radius: 4px; /* Matches the card's rounded edges */
+    height: 180px; /* Slightly taller images */
+  }
+}
+
+/* Desktop Styles (From 768px Upwards) */
+@media (min-width: 768px) {
+  .articles-section {
+    padding: 4rem 2rem; /* Add more space for desktop */
   }
 
-  @media (min-width: 768px) {
-      .article-card {
-          max-width: 400px; /* Set a max width for desktop */
-          padding: 16px; /* Increase padding for desktop */
-          margin: 0 auto; /* Center the card horizontally */
-      }
+  .articles-carousel-container {
+    gap: 2rem; /* Increase space between cards */
+  }
 
-      .article-image {
-          max-width: 100%; /* Allow it to fit within the card on desktop */
-          height: 200px; /* Larger fixed height for desktop */
-      }
+  .article-card {
+    width: 30%; /* Three cards per row */
+    max-width: 350px; /* Slightly larger fixed size */
+    padding: 1.5rem;
   }
-    
-  .article-image-placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    background-color: #ccc;
-    border-radius: 4px;
+
+  .article-image {
+    height: 200px; /* Taller image for desktop */
   }
+}

@@ -6,6 +6,7 @@ import Resume from "../components/Resume";
 import theme from "../styles/theme";
 import Articles from "../components/Articles";
 
+
 const Home = () => {
   return (
     <ThemeProvider theme={theme}>
