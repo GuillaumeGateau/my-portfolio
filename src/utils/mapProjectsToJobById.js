@@ -2,27 +2,30 @@
 import resumeData from "../assets/resumeData.json";
 import { loadProjects } from "./loadProjects";
 
-export const mapProjectsToJobById = async (jobId) => {
+export const mapProjectsToJobById = async (jobIdOrCompany) => {
   try {
     // Load all projects
     const projects = await loadProjects();
 
     console.log("Loaded Projects:", projects); // Debug: List all loaded projects
 
-    // Find the specific job by its ID
-    const job = resumeData.find((job) => String(job.id) === String(jobId));
+    // Find the specific job by its ID or company dynamically
+    const job = resumeData.find(
+      (job) => String(job.id) === String(jobIdOrCompany) || job.company === jobIdOrCompany
+    );
 
-    console.log("Job ID Passed:", jobId); // Debug: Check the passed jobId
+    console.log("Job ID or Company Passed:", jobIdOrCompany); // Debug: Check the passed jobIdOrCompany
     console.log("Found Job:", job); // Debug: Verify the job data
 
     if (!job) {
-      console.error(`Job with ID ${jobId} not found in resumeData.`);
+      console.error(`Job with ID or Company "${jobIdOrCompany}" not found in resumeData.`);
       return null; // Return null if the job doesn't exist
     }
 
-    // Filter projects associated with the job
+    // Filter projects dynamically by job.id or job.company
     const associatedProjects = projects.filter(
-      (project) => String(project.jobId) === String(jobId)
+      (project) =>
+        String(project.jobId) === String(job.id) || project.jobId === job.company
     );
 
     console.log("Associated Projects for Job:", associatedProjects); // Debug: Check associated projects
