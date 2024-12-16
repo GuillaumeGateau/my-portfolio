@@ -30,7 +30,7 @@ const Articles = () => {
   return (
     <section id="articles" className="articles-section">
       <div className="articles-container">
-        <h2 className="articles-title">Essays and Adventures</h2>
+        <h2 className="articles-title">Product Perspectives</h2>
         <div
           className="articles-carousel-container"
           style={{

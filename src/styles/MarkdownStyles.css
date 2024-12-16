@@ -1,7 +1,7 @@
 .markdown-content {
     padding: 16px;
     line-height: 1.6;
-    color: #333; /* Standard text color */
+    color: #34495E; /* Standard text color */
   }
   
   /* Adjust list spacing */
@@ -19,7 +19,7 @@
   
   .markdown-content li::marker {
     font-size: 1.4rem; /* Larger bullet points */
-    color: #333; /* Match text color */
+    color: #34495E; /* Match text color */
   }
   
   /* Paragraph spacing */

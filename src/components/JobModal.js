@@ -67,6 +67,7 @@ const JobModal = ({ jobId, open, onClose }) => {
             position: "absolute",
             top: 16,
             right: 16,
+            color: "white",
           }}
         >
           <CloseIcon />

@@ -21,10 +21,10 @@ const Resume = () => {
   return (
     <div className="resume-container" id="resume">
       <div className="experience-intro">
-        <h2>About My Experience</h2>
+        <h2>Prooject Portfolio</h2>
         <p>
-          Over a decade of experience driving product innovation across multiple
-          industries, including tech, e-commerce, and QSR.
+          I'm and AI enthusiast who has built several GenAI apps along with a long career in ML.  I have over a decade of marketplace experience driving product innovation across multiple
+          industries: travel, housing, e-commerce, fashion and QSR.
         </p>
       </div>
 

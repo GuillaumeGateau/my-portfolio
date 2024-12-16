@@ -51,6 +51,7 @@ const ArticleDrawer = ({ open, onClose, article }) => {
             position: "absolute",
             top: 16,
             right: 16,
+            color: "white",
           }}
         >
           <CloseIcon />
