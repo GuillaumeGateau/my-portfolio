@@ -1,9 +1,9 @@
 /* Resume Container */
 .resume-container {
   padding: 3rem 1rem; /* Added padding for breathing room */
-  background-color: #34495E; /* Darker Blue Background */
+  background-color: var(--color-primary-text); /* Darker Blue Background */
   margin: 0 auto;
-  color: #EAF2F8; /* Lightest Blue for text */
+  color: var(--color-secondary-bg); /* Lightest Blue for text */
   text-align: center;
   box-sizing: border-box;
   width: 100%;
@@ -12,12 +12,12 @@
 /* Experience Intro */
 .experience-intro h2 {
   font-size: 2rem;
-  color: #AED6F1; /* Pale Blue for title highlights */
+  color: var(--color-highlight-color); /* Pale Blue for title highlights */
   margin-bottom: 1rem;
 }
 
 .experience-intro p {
-  color: #EAF2F8; /* Lightest Blue for paragraph text */
+  color: var(--color-secondary-bg); /* Lightest Blue for paragraph text */
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -25,6 +25,6 @@
 
 /* Highlights */
 .experience-intro span {
-  color: #AED6F1; /* Pale Blue for subtle emphasis */
+  color: var(--color-highlight-color); /* Pale Blue for subtle emphasis */
   font-weight: bold;
 }

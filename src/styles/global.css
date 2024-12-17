@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'museo-sans', sans-serif;
-  background-color: #3d4450;
+  background-color: var(--color-header);
   color: #EAF2F8;
   overflow-x: hidden;
   overflow-y: scroll; 
@@ -17,7 +17,7 @@ button {
 }
 
 body .header-appbar {
-  background-color: #3d4450 !important;
+  background-color: var(--color-header) !important;
   opacity: 1 !important;
   box-shadow: none;
   align-items: center; /* Centers content vertically */
@@ -54,4 +54,40 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+/* Global Variables */
+:root {
+  /* Color Palette */
+  --color-background-dark: #1C1C1C; /* Dark Charcoal */
+  --color-background-light: #EAF2F8; /* Light Sky Blue */
+  --color-accent: #2980B9; /* Medium Blue */
+  --color-text-primary: #34495E; /* Slate Gray */
+  --color-highlight: #AED6F1; /* Pale Blue */
+  --color-card-background: #F6F6F6; /* Background for cards*/
+  --color-hero-gradient: #22262d;
+  --color-header: #3d4450;
+
+  /* Generic Color Names */
+  --color-primary-bg: var(--color-background-dark);
+  --color-secondary-bg: var(--color-background-light);
+  --color-primary-text: var(--color-text-primary);
+  --color-accent-color: var(--color-accent);
+  --color-highlight-color: var(--color-highlight);
+
+  /* Spacing */
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+
+  /* Fonts */
+  --font-family-base: 'museo-sans', sans-serif;
+  --font-size-large: 2rem;
+  --font-size-medium: 1.5rem;
+  --font-size-small: 1rem;
+
+  /* Other Globals */
+  --border-radius: 8px;
+  --transition-default: all 0.3s ease-in-out;
 }

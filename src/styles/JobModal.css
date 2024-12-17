@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* Close button and title are separated */
-  background-color: #2980B9;
+  background-color: var(--color-accent-color);
   padding: 16px; /* Consistent padding */
   box-sizing: border-box;
   width: 100%;
@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #EAF2F8;
+  background-color: var(--color-secondary-bg);
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

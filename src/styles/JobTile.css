@@ -44,9 +44,9 @@
   display: flex;
   align-items: center;
   background: white;
-  color: #34495e;
+  color: var(--color-primary-text);
   border-radius: 8px;
-  box-shadow: 1 2px 4px #EAF2F8;
+  box-shadow: 1 2px 4px var(--color-secondary-bg);
   padding: 1rem;
   height: 150px;
 }
@@ -63,7 +63,7 @@
 /* Text styling */
 .job-details {
   flex: 1;
-  color: #34495e;
+  color: var(--color-primary-text);
 }
 
 /* Mobile: Alternate alignment for left and right justification */

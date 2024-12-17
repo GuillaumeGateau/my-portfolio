@@ -21,7 +21,7 @@ const Resume = () => {
   return (
     <div className="resume-container" id="resume">
       <div className="experience-intro">
-        <h2>Prooject Portfolio</h2>
+        <h2>Project Portfolio</h2>
         <p>
           I'm and AI enthusiast who has built several GenAI apps along with a long career in ML.  I have over a decade of marketplace experience driving product innovation across multiple
           industries: travel, housing, e-commerce, fashion and QSR.

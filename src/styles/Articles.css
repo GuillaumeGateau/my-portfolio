@@ -1,7 +1,7 @@
 /* Articles Section - Base Styles for Mobile Web */
 .articles-section {
-  background-color: #F6F6F6; /* Light Gray background */
-  color: #34495e; /* Dark Gray text */
+  background-color: var(--color-card-background); /* Light Gray background */
+  color: var(--color-text-primary);
   padding: 3rem 1rem; /* Mobile-friendly padding */
   text-align: center;
   margin: 0 auto;
@@ -12,7 +12,7 @@
   font-size: 2rem; /* Mobile-friendly font size */
   font-weight: bold;
   margin-bottom: 2rem;
-  color: #34495e; /* Dark Gray for title */
+  color: var(--color-text-primary);
 }
 
 .articles-carousel-container {
@@ -24,7 +24,7 @@
 
 /* Article Card - Mobile Web (Core CSS) */
 .article-card {
-  background-color: #FFFFFF; /* White card background */
+  background-color: var(--color-card-background); 
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   padding: 0.5rem; /* Tight padding for small screens */
@@ -45,7 +45,7 @@
   height: 150px; /* Fixed height for consistency */
   object-fit: cover;
   border-radius: 8px;
-  background-color: #F0F0F0; /* Placeholder background */
+  background-color: var(--color-card-background); /* Placeholder background */
 }
 
 /* Title Placeholder when No Image */
@@ -54,7 +54,7 @@
   font-size: 1rem;
   font-weight: bold;
   padding: 1rem;
-  color: #34495e; /* Medium Gray for placeholder title */
+  color: var(--color-text-primary);
 }
 
 /* Tablet Styles (From 480px to 768px) */
