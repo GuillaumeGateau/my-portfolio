@@ -5,7 +5,7 @@ date: 2024-12-19T20:22:01.623Z
 image: /images/uploads/guest-checkout.png
 description: Guest checkout project
 ---
-**Title: Breaking Down Barriers: Introducing Guest Checkout**
+**Breaking Down Barriers: Guest Checkout**
 
 Imagine walking into a restaurant, selecting a few items at the counter, and then being asked to share your personal details before you can see the total or change your order. It’s a jarring request—one that would likely send many customers straight out the door. Yet, in our digital experience, that’s essentially what we were doing: before guests could even review their bag, they had to create an account. The friction this caused was significant, leading to fewer completed purchases and missed opportunities.
 
