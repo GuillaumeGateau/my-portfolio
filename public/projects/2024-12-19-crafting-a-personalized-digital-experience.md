@@ -5,7 +5,7 @@ date: 2024-12-19T20:24:30.886Z
 image: /images/uploads/personalization.png
 description: Personalization experience
 ---
-**Introduction: Building a Relationship, One Click at a Time**\
+**Building a Relationship, One Click at a Time**\
 Picture a guest walking into a familiar neighborhood restaurant: over time, the staff learns their name, their favorite dish, and how they like it prepared. This warmth and familiarity can feel like coming home. For a digital ordering experience to match (or even surpass) that sense of comfort, it must understand the guest with equal nuance. True personalization means that no matter when or where a customer interacts—whether browsing at lunchtime on a workday or ordering for a group on a weekend evening—it feels as if the app or website has anticipated their needs, helping them choose the right meal quickly and confidently.
 
 **The Vision: Turning Insights into Tailored Journeys**\
