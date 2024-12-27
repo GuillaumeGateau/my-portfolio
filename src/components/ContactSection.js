@@ -101,7 +101,7 @@ const ContactSection = () => {
     emailjs
       .send(
         "service_ta5yo2d",          // Your Service ID
-        "YOUR_TEMPLATE_ID_HERE",    // Replace with your actual EmailJS template ID
+        "template_ppfvh48",    // Replace with your actual EmailJS template ID
         {
           // Match EXACTLY the placeholders in your EmailJS template
           to_name:   "William",            // or any name to greet yourself
