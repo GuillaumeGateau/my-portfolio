@@ -18,6 +18,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "buffer": "^6.0.3",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.14.4",
     "framer-motion-3d": "^11.14.4",
     "gray-matter": "^4.0.3",

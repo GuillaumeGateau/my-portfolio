@@ -88,7 +88,7 @@
   line-height: 1.1; /* Prevent large spacing between wrapped lines */
   white-space: normal; /* Allow wrapping if necessary */
   pointer-events: none; /* Prevent blocking interactions */
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 /* Button Styling */
@@ -178,7 +178,7 @@
 
   .hero-container .hero-title {
     font-size: 10vw; /* Adjusted for smaller screens */
-    margin-top: 15%;
+    margin-top: 25%;
   }
 
   .hero-button {

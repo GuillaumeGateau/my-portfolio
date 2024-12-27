@@ -2,17 +2,23 @@ import React, { useState, useEffect } from "react";
 import { TextField, Button, Box, Typography, Divider } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import emailjs from "emailjs-com";
 
 const ContactSection = () => {
+  // State for form fields
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     message: "",
   });
+
+  // State for field errors
   const [errors, setErrors] = useState({});
 
-  // ----- Validation Logic (unchanged) -----
+  /*
+    1. Validation for each field (except "message" which is optional).
+  */
   const validateField = (fieldName, value) => {
     switch (fieldName) {
       case "name":
@@ -37,12 +43,19 @@ const ContactSection = () => {
     return "";
   };
 
+  /*
+    2. Handle blur event to validate each field individually.
+  */
   const handleBlur = (e) => {
     const { name, value } = e.target;
     const errorMessage = validateField(name, value);
     setErrors((prevErrors) => ({ ...prevErrors, [name]: errorMessage }));
   };
 
+  /*
+    3. Handle changes (typing) in each field. 
+       If there's an existing error, re-check it as the user types.
+  */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -54,14 +67,14 @@ const ContactSection = () => {
   };
 
   /*
-    We still have a handleSubmit for validation. 
-    If the form is valid, we let Netlify handle the actual submission.
+    4. Submit handler to validate all fields and, if valid,
+       send the form via EmailJS.
   */
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Full check of required fields
     const newErrors = {};
-
     const nameError = validateField("name", formData.name);
     if (nameError) newErrors.name = nameError;
 
@@ -73,7 +86,7 @@ const ContactSection = () => {
 
     setErrors(newErrors);
 
-    // If any required field is invalid, stop submission
+    // If any required field is invalid, stop
     if (Object.values(newErrors).some((err) => err !== "")) {
       return;
     }
@@ -81,16 +94,44 @@ const ContactSection = () => {
     console.log("Form validated successfully:", formData);
 
     /*
-      If we want Netlify to process the form, 
-      we must remove the e.preventDefault() or re-submit via JS.
-      Easiest approach: let the form "submit" after validations pass.
+      5. SEND the email with EmailJS
+         - We use your service ID, your template ID, 
+           and your public key (H9FJtuvnDmqMMf6BJ).
     */
-    e.target.submit(); 
+    emailjs
+      .send(
+        "service_ta5yo2d",          // Your Service ID
+        "YOUR_TEMPLATE_ID_HERE",    // Replace with your actual EmailJS template ID
+        {
+          // Match EXACTLY the placeholders in your EmailJS template
+          to_name:   "William",            // or any name to greet yourself
+          from_name: formData.name,        // user "Name" from the form
+          company:   formData.company,     // user "Company"
+          email:     formData.email,       // user "Email"
+          message:   formData.message,     // user "Message"
+        },
+        "H9FJtuvnDmqMMf6BJ" // Your Public Key (User ID)
+      )
+      .then(
+        (result) => {
+          console.log("EmailJS result:", result.text);
+          alert("Message sent successfully!");
+          // (Optional) Clear the form
+          setFormData({ name: "", company: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("EmailJS error:", error.text);
+          alert("Oops, something went wrong... please try again.");
+        }
+      );
   };
 
-  // Calendly script logic (unchanged)
+  /*
+    6. Calendly script effect (unchanged).
+       If you no longer need Calendly, remove this entire useEffect.
+  */
   useEffect(() => {
-    // 1. Check if Calendly CSS is already present
+    // Calendly CSS
     const existingCSS = document.querySelector(
       'link[href="https://assets.calendly.com/assets/external/widget.css"]'
     );
@@ -102,7 +143,7 @@ const ContactSection = () => {
       console.log("Calendly CSS loaded dynamically.");
     }
 
-    // 2. Check if Calendly JS is already present
+    // Calendly JS
     const existingScript = document.querySelector(
       'script[src="https://assets.calendly.com/assets/external/widget.js"]'
     );
@@ -118,6 +159,9 @@ const ContactSection = () => {
     }
   }, []);
 
+  /*
+    7. Opens Calendly popup
+  */
   const openCalendlyPopup = () => {
     console.log("Button was clicked. Checking Calendly...");
 
@@ -153,32 +197,12 @@ const ContactSection = () => {
       </Typography>
 
       {/*
-        NETLIFY FORM:
-        1) name="contact" 
-        2) method="POST" 
-        3) data-netlify="true" 
-        4) netlify-honeypot="bot-field" (optional)
-        5) hidden input for form-name
+        8. Plain <form> with onSubmit={handleSubmit}.
       */}
       <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         style={{ maxWidth: "500px", margin: "0 auto" }}
       >
-        {/* Hidden form-name input is required for Netlify to identify your form */}
-        <input type="hidden" name="form-name" value="contact" />
-
-        {/* Honeypot input for spam bots (hidden) */}
-        <p hidden>
-          <label>
-            Don’t fill this out if you’re human:
-            <input name="bot-field" />
-          </label>
-        </p>
-
         {["name", "company", "email", "message"].map((field, idx) => (
           <TextField
             key={idx}
