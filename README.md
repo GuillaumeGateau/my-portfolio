@@ -173,4 +173,3 @@ This expanded README now provides:
 	•	Step-by-step instructions
 	•	Updated color palette and responsive design notes.
 
-Let me know if more details are needed! 🚀

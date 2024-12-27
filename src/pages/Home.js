@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Resume from "../components/Resume";
 import theme from "../styles/theme";
 import Articles from "../components/Articles";
+import ContactSection from "../components/ContactSection";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
       <Hero />
       <Articles /> 
       <Resume />
+      <ContactSection />
     </ThemeProvider>
   );
 };

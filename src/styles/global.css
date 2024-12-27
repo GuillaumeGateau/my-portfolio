@@ -1,93 +1,158 @@
-body {
-  margin: 0;
-  font-family: 'museo-sans', sans-serif;
-  background-color: var(--color-header);
-  color: #EAF2F8;
-  overflow-x: hidden;
-  overflow-y: scroll; 
-}
+/* ================================
+   GLOBAL CSS (ENTIRE FILE)
+   ================================ */
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-body .header-appbar {
-  background-color: var(--color-header) !important;
-  opacity: 1 !important;
-  box-shadow: none;
-  align-items: center; /* Centers content vertically */
-  width: 100%;
-  z-index: 1100;
-  top: 0;
-  position: fixed; /* Ensure it's always visible */
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  scroll-behavior: smooth; /* Smooth scrolling globally */
-  overflow-y: auto; 
-  height: 100%; /* Allow full height scrolling */
-}
-
-* {
-  box-sizing: border-box; /* Include padding and border in height/width calculations */
-}
-
-html {
-  overscroll-behavior: auto; /* Prevent unintended scroll chaining */
-}
-
-.app-container {
-  min-height: 100vh; /* Ensure your main container fills the viewport */
-  overflow-x: hidden; /* Prevent any accidental horizontal scrolling */
-}
-
-/* Reset universal styles to avoid conflicts */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-/* Global Variables */
-:root {
-  /* Color Palette */
-  --color-background-dark: #1C1C1C; /* Dark Charcoal */
-  --color-background-light: #EAF2F8; /* Light Sky Blue */
-  --color-accent: #2980B9; /* Medium Blue */
-  --color-text-primary: #34495E; /* Slate Gray */
-  --color-highlight: #AED6F1; /* Pale Blue */
-  --color-card-background: #F6F6F6; /* Background for cards*/
-  --color-hero-gradient: #22262d;
-  --color-header: #3d4450;
-
-  /* Generic Color Names */
-  --color-primary-bg: var(--color-background-dark);
-  --color-secondary-bg: var(--color-background-light);
-  --color-primary-text: var(--color-text-primary);
-  --color-accent-color: var(--color-accent);
-  --color-highlight-color: var(--color-highlight);
-
-  /* Spacing */
-  --spacing-small: 0.5rem;
-  --spacing-medium: 1rem;
-  --spacing-large: 2rem;
-
-  /* Fonts */
-  --font-family-base: 'museo-sans', sans-serif;
-  --font-size-large: 2rem;
-  --font-size-medium: 1.5rem;
-  --font-size-small: 1rem;
-
-  /* Other Globals */
-  --border-radius: 8px;
-  --transition-default: all 0.3s ease-in-out;
-}
+   body {
+    margin: 0;
+    font-family: 'museo-sans', sans-serif;
+    background-color: var(--color-header);
+    color: #EAF2F8;
+    overflow-x: hidden;
+    overflow-y: scroll; 
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  button {
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    text-transform: none; /* Avoid forcing uppercase */
+  }
+  
+  body .header-appbar {
+    background-color: var(--color-header) !important;
+    opacity: 1 !important;
+    box-shadow: none;
+    align-items: center; /* Centers content vertically */
+    width: 100%;
+    z-index: 1100;
+    top: 0;
+    position: fixed; /* Ensure it's always visible */
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Smooth scrolling globally */
+    overflow-y: auto; 
+    height: 100%; /* Allow full height scrolling */
+  }
+  
+  * {
+    box-sizing: border-box; /* Include padding and border in height/width calculations */
+  }
+  
+  html {
+    overscroll-behavior: auto; /* Prevent unintended scroll chaining */
+  }
+  
+  .app-container {
+    min-height: 100vh; /* Ensure your main container fills the viewport */
+    overflow-x: hidden; /* Prevent any accidental horizontal scrolling */
+  }
+  
+  /* Reset universal styles to avoid conflicts */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global Variables */
+  :root {
+    /* Color Palette */
+    --color-background-dark: #1C1C1C; /* Dark Charcoal */
+    --color-background-light: #EAF2F8; /* Light Sky Blue */
+    --color-accent: #2980B9;          /* Medium Blue */
+    --color-accent-hover: #1c6ca1;    /* Accent color on hover */
+    --color-text-primary: #34495E;    /* Slate Gray */
+    --color-highlight: #AED6F1;       /* Pale Blue */
+    --color-card-background: #F6F6F6; /* Background for cards */
+    --color-hero-gradient: #22262d;
+    --color-header: #3d4450;
+  
+    /* Generic Color Names */
+    --color-primary-bg: var(--color-background-dark);
+    --color-secondary-bg: var(--color-background-light);
+    --color-primary-text: var(--color-text-primary);
+    --color-accent-color: var(--color-accent);
+    --color-highlight-color: var(--color-highlight);
+  
+    /* Spacing */
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+  
+    /* Fonts */
+    --font-family-base: 'museo-sans', sans-serif;
+    --font-size-large: 2rem;
+    --font-size-medium: 1.5rem;
+    --font-size-small: 1rem;
+  
+    /* Error States */
+    --color-error: #e74c3c;  /* Error Red */
+    --color-success: #27ae60;/* Success Green */
+    --color-warning: #f39c12;/* Warning Orange */
+  
+    /* Other Globals */
+    --border-radius: 6px; /* Matches tighter radius across fields and buttons */
+    --transition-default: all 0.3s ease-in-out;
+  }
+  
+  /* Input and Textarea Styling */
+  /* -- CHANGED: Removed 1px solid to let MUI's outline show
+        only. That solves the double-border problem. -- */
+  input, textarea {
+    border: none; 
+    border-radius: var(--border-radius);
+    color: var(--color-text-primary);
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    /* border-color: var(--color-accent-hover);  <-- removed so it won't conflict with MUI styling */
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: var(--color-text-primary); /* Match placeholder color */
+  }
+  
+  input.error, textarea.error {
+    border-color: var(--color-error); /* Error state styling */
+  }
+  
+  /* Divider Styling */
+  .or-separator {
+    margin: 2rem 0;
+    font-size: var(--font-size-small);
+    color: var(--color-text-primary);
+  }
+  
+  .or-separator::before,
+  .or-separator::after {
+    border-color: var(--color-text-primary); /* Match separator lines */
+  }
+  
+  /* Button Styling */
+  button {
+    font-weight: normal; /* Remove bold text */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-text-primary); /* Match input field border */
+  }
+  
+  button:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-card-background);
+  }
+  
+  /* Specific Styling for Contact Buttons */
+  .calendly-button, .linkedin-button {
+    font-size: 0.875rem; /* Ensure text fits properly */
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-text-primary);
+  }

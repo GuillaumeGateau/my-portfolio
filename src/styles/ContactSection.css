@@ -1,0 +1,60 @@
+/* =========================================
+   CONTACTSECTION.CSS (ENTIRE FILE)
+   ========================================= */
+
+/* Remove plain HTML borders so MUI’s outline takes over completely */
+input,
+textarea {
+  border: none;
+  outline: none; /* Extra safeguard */
+  border-radius: var(--border-radius);
+  color: var(--color-primary-text);
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.contact-section {
+  background-color: var(--color-card-background);
+  padding: 3rem 1rem 6rem;
+  text-align: center;
+}
+
+.contact-section h4 {
+  color: var(--color-primary-text);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.contact-section form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+button.primary-contact-button {
+  background-color: var(--color-primary-text);
+  color: var(--color-card-background);
+  border: none;
+  box-shadow: none;
+}
+
+.or-separator {
+  color: var(--color-primary-text);
+  margin: 2rem 0;
+  font-size: 1rem;
+}
+
+.or-separator::before,
+.or-separator::after {
+  border-color: var(--color-primary-text);
+}
+
+.calendly-overlay,
+.calendly-popup {
+  z-index: 999999 !important;
+}
