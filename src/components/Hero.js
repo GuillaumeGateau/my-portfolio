@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography} from "@mui/material";
 import heroBg from "../assets/hero-bg.jpeg";
 import "../styles/Hero.css";
 
@@ -25,23 +25,23 @@ const Hero = () => {
     return () => clearInterval(typingInterval);
   }, []);
 
-  const handleScrollToResume = (e) => {
-    e.preventDefault(); // Prevent default behavior
-    const resumeSection = document.getElementById("resume");
-    if (resumeSection) {
-      const headerHeight =
-        document.querySelector(".header-appbar")?.offsetHeight || 64; // Header height
-      const offsetTop =
-        resumeSection.getBoundingClientRect().top +
-        window.pageYOffset -
-        headerHeight -
-        10; // Add a little padding offset
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth", // Ensure smooth scrolling
-      });
-    }
-  };
+  // const handleScrollToResume = (e) => {
+  //   e.preventDefault(); // Prevent default behavior
+  //   const resumeSection = document.getElementById("resume");
+  //   if (resumeSection) {
+  //     const headerHeight =
+  //       document.querySelector(".header-appbar")?.offsetHeight || 64; // Header height
+  //     const offsetTop =
+  //       resumeSection.getBoundingClientRect().top +
+  //       window.pageYOffset -
+  //       headerHeight -
+  //       10; // Add a little padding offset
+  //     window.scrollTo({
+  //       top: offsetTop,
+  //       behavior: "smooth", // Ensure smooth scrolling
+  //     });
+  //   }
+  // };
 
   return (
     <Box className="hero-container">
@@ -55,13 +55,13 @@ const Hero = () => {
         </Typography>
         {typingComplete && (
           <>
-            <Button
+           {/* <Button
               variant="contained"
               className="hero-button"
               onClick={handleScrollToResume}
             >
               Explore My Work
-            </Button>
+           </Button>  */}
             {pillars.length > 0 && (
               <Box className="pillar-container">
                 <Typography variant="h3" className="pillar-subtitle">
