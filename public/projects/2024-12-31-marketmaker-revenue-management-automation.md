@@ -1,6 +1,6 @@
 ---
 title: "MarketMaker: Revenue Management Automation"
-jobId: Zillow
+jobId: Expedia - VRBO
 date: 2024-12-31T19:14:25.206Z
 description: MarketMaker
 ---
