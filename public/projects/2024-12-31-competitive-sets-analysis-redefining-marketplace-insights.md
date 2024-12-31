@@ -1,6 +1,6 @@
 ---
 title: "Competitive Sets Analysis: Redefining Marketplace Insights"
-jobId: Zillow
+jobId: Expedia - VRBO
 date: 2024-12-31T19:00:38.326Z
 description: COMP SETS
 ---
