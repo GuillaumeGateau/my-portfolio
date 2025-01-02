@@ -218,4 +218,3 @@ This expanded README provides:
 	4.	Step-by-Step Instructions – Clear commands for running and building.
 	5.	Responsive Design Notes – Ensuring a consistent UI across devices.
 
-With these updates, you can quickly understand the codebase, add new content, and see exactly how the site’s layout and form submissions work—even if you’re new to the project. Happy coding!
