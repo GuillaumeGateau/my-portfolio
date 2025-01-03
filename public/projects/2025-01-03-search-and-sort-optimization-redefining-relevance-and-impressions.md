@@ -63,3 +63,11 @@ We updated the search algorithm to:
 3. **Enhanced Transparency for Consignors**:
 
    * Consignors gained visibility into how items were performing in search rankings, building trust and improving retention.
+
+#### Why It Matters
+
+The transformation of The RealReal’s search and sort system fundamentally reshaped how customers interacted with the platform. By aligning item rankings with customer behavior, we:
+
+* Delivered more relevant results, ensuring customers found desirable items faster.
+* Built trust with consignors by providing transparency into how their items performed in search rankings.
+* Increased customer engagement and satisfaction, driving higher conversion rates and improving overall marketplace efficiency.
